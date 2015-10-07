@@ -30,11 +30,12 @@ module ROM
       end
 
       def insert(data)
-        collection.insert_one(data)
+        collection.insert(data)
       end
 
       def update_all(attributes)
-        view.update_many(attributes)
+        bulk = collection.initialize_ordered_bulk_op
+        with_options(bulk.find(criteria.selector), criteria.options).update(attributes).execute
       end
 
       def remove_all

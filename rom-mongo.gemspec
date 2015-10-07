@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "rom", "~> 0.8", ">= 0.8.0"
-  spec.add_runtime_dependency "mongo", "~> 2.0.0"
+  spec.add_runtime_dependency "mongo"
   spec.add_runtime_dependency "origin"
 
   spec.add_development_dependency "bundler"

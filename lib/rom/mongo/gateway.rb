@@ -11,8 +11,8 @@ module ROM
     class Gateway < ROM::Gateway
       attr_reader :collections
 
-      def initialize(uri)
-        @connection = ::Mongo::Client.new(uri)
+      def initialize(host, db)
+        @connection = ::MongoClient.new(host).db(db)
         @collections = {}
       end
 
