@@ -1,17 +1,17 @@
 require 'mongo'
 require 'uri'
-
 require 'rom/gateway'
-
 require 'rom/mongo/dataset'
 require 'rom/mongo/commands'
+
+include Mongo
 
 module ROM::Mongo
   class Gateway < ROM::Gateway
     attr_reader :collections
 
     def initialize(host, db)
-      @connection = ::MongoClient.new(host).db(db)
+      @connection = MongoClient.new(host).db(db)
       @collections = {}
     end
 
