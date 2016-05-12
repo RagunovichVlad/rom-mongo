@@ -61,6 +61,10 @@ module ROM::Mongo
       dataset(criteria.skip(value))
     end
 
+    def order_by(value)
+      dataset(criteria.order_by(value))
+    end
+
     private
 
     def view
