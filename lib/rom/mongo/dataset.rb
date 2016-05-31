@@ -38,7 +38,8 @@ module ROM::Mongo
     end
 
     def remove_all
-      view.delete_many
+      bulk = collection.initialize_ordered_bulk_op
+      with_options(bulk.find(criteria.selector), criteria.options).remove.execute
     end
 
     def where(doc)
